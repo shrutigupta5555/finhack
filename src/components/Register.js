@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from  '../assets/logo.png'
+import { useHistory } from "react-router-dom";
 
 import AuthService from "../services/auth";
 
@@ -8,13 +9,21 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const history = useHistory()
     function performValidation() {
       return email.length > 0 && password.length > 0 && passwordConfirm == password;
     }
     function handleSubmit(event) {
       event.preventDefault();
       console.log(name, email, password)
-      AuthService.register(name, email, password)
+      AuthService.register(name, email, password).then(
+        () => {
+          history.push('/home');
+        },
+        error => {
+          console.log(error.response.data.message)
+    }
+    )
     }
     return (
         <main>
