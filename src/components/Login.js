@@ -3,6 +3,7 @@ import logo from  '../assets/logo.png'
 
 export default function Login() {
     return (
+        <main>
         <section className="container">
              <div className="card login">
             <div className="img-container">
@@ -27,6 +28,6 @@ export default function Login() {
         </div>
 
         </section>
-       
+        </main>
     )
 }
