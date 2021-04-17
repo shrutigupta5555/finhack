@@ -2,7 +2,8 @@ import React from 'react'
 
 function MyProfile() {
     return (
-        <div>
+        
+        <div className="client-container">
             <h1>My profile</h1>
         </div>
     )
