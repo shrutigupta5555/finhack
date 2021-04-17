@@ -15,6 +15,7 @@ export default function Login() {
       AuthService.login(email,password)
     }
     return (
+        <main>
         <section className="container">
              <div className="card login">
             <div className="img-container">
@@ -39,6 +40,6 @@ export default function Login() {
         </div>
 
         </section>
-
+        </main>
     )
 }

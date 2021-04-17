@@ -17,6 +17,7 @@ export default function Register() {
       AuthService.register(name, email, password)
     }
     return (
+        <main>
         <section className="container">
             <div className="card">
             <div className="img-container">
@@ -49,6 +50,6 @@ export default function Register() {
 
         </div>
         </section>
-
+        </main>
     )
 }
