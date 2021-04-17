@@ -18,7 +18,7 @@ export default function Register() {
       console.log(name, email, password)
       AuthService.register(name, email, password).then(
         () => {
-          history.push('/home');
+          history.push('/login');
         },
         error => {
           console.log(error.response.data.message)
