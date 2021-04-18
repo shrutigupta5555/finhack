@@ -1,7 +1,17 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import UserService from '../services/user';
 
 
 function MyProfile() {
+    const [myProfile, setmyProfile] = useState([])
+
+    useEffect(() => {
+        UserService.getProfile().then(response => {
+            setmyProfile(response)
+        })
+        // setmyProfile({name: 'Simon Max', email: "s@o.com"})
+    }, [])
+
     return (
         
         <div className="client-container">
@@ -13,11 +23,11 @@ function MyProfile() {
                 <div className="my-profile"> 
                     <div className="head">
                         <div className="circle"></div>
-                        <h2>Simon Max</h2>
+                        <h2>{myProfile.name}</h2>
                         
                     </div>
                     <div className="info">
-                        <p>Email: <span>simonmax@outlook.com</span></p>
+                        <p>Email: <span>{myProfile.email}</span></p>
                         <p>Phone Number: <span>+1 8080987236</span></p>
                         <p>Payment ID <span>nwufnwenw</span></p>
                     </div>
