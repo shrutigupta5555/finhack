@@ -36,20 +36,24 @@ function Clients({activateAddClient, invoiceRoute}) {
 
     useEffect(() => {
         
-        UserService.getClients().then(response =>
-            setClient(response)
-        )
-        // setClient([{client_name: 'John', client_email: "john@gmail.com", client_phone_no:"999999999"}])
+        // UserService.getClients().then(response =>
+        //     setClient(response)
+        // )
+        setClient([{client_name: 'John', client_email: "john@gmail.com", client_phone_no:"999999999"}])
     }, [])
 
     return (
         <> 
-            <div className="top-client">
-            <h3>Clients</h3>
-            <button className="add-client button" onClick = {(e)=>activateAddClient(e)} >Add</button>
-            </div>
+            
             <div className="client-container">
             
+                <div className="single-client">
+                    <div className="header">
+                        <h3>Clients</h3>
+                        <button className="add-client button" onClick = {(e)=>activateAddClient(e)} >Add</button>
+                    </div>
+                   
+                </div>
                 {client.map(item => < Client {...item} activateAddClient={activateAddClient} invoiceRoute={invoiceRoute}/>)}
                 
             
