@@ -72,7 +72,7 @@ function Invoice() {
                         <table>
                             <tr>
                                 <th>Item</th>
-                                <th>Rate</th>
+                                <th>Rate($/hour)</th>
                                 <th>Hours</th>
                             </tr>
                             {row.map(item => {

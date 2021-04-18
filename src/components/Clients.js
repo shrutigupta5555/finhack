@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom';
 import Invoice from './Invoice'
+import USerService from "../services/user";
 function Client({activateAddClient, invoiceRoute}) {
 
 function handleClick(e) {
@@ -8,7 +9,12 @@ function handleClick(e) {
 }
     
 
-return ( 
+
+
+
+
+
+return (
     <div className="single-client">
     <div className="single">
     <div className="top-client">

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import SideBar from './SideBar'
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch, useHistory} from 'react-router-dom'
 import Client from './Clients'
 import MyProfile from './MyProfile'
 import AddClient from './AddClient'
@@ -13,6 +13,13 @@ function Home() {
     const [invoiceRoute, setinvoiceRoute] = useState(false);
 
     
+    
+    const history = useHistory()
+
+    if (selectedRoute == 'Logout') {
+        AuthService.logout()
+        history.push('/login')
+    }
 
     function selectRoute(e) {
         if(e.target.className!='sidebar'){
@@ -29,6 +36,7 @@ function Home() {
 
         setAddClient(!addClient)
         
+
         console.log(true)
     }
 
