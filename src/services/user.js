@@ -8,7 +8,7 @@ class UserService {
     return axios
       .get(API_URL + "clients", { headers: authHeader() })
       .then(response => {
-        return response.data;
+        return response.data.clients;
       });
   }
   addClients(client_name, client_email, client_phone_no) {
