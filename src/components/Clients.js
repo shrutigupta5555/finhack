@@ -2,17 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom';
 import Invoice from './Invoice'
 import USerService from "../services/user";
-function Client({activateAddClient, invoiceRoute}) {
-
-function handleClick(e) {
-    console.log(true)
-}
-    
-
-
-
-
-
+function Client({client_name,client_email,client_phone_no,activateAddClient, invoiceRoute}) {
 
 return (
     <div className="single-client">
@@ -26,7 +16,7 @@ return (
         
         <div className="circle"></div>
         <div className="client-info">
-             <p><span className="name">John Doe</span> </p>
+             <p><span className="name">{client_name}</span> </p>
              <p>Status : <span class="status">Pending</span> </p>
         </div>
       
@@ -43,10 +33,20 @@ return (
 
 
 function Clients({activateAddClient, invoiceRoute}) {
+
+    const [client, setClient] = useState([])
+
+    useEffect(() => {
+        UserService.getClient().then(response =>
+            setClient(response)
+        )
+    }, [])
+
     return (
         <div className="client-container">
         
-           < Client activateAddClient={activateAddClient} invoiceRoute={invoiceRoute}/>   
+            {client.map(item => < Client {...item} activateAddClient={activateAddClient} invoiceRoute={invoiceRoute}/>)}
+            
         </div>
     )
 }

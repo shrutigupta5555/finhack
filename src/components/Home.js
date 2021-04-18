@@ -5,6 +5,7 @@ import Client from './Clients'
 import MyProfile from './MyProfile'
 import AddClient from './AddClient'
 import Invoice from './Invoice'
+import AuthService from '../services/auth'
 
 function Home() {
 
