@@ -8,10 +8,7 @@ function Client({client_name,client_email,client_phone_no,activateAddClient, inv
 return (
     <div className="single-client">
     <div className="single">
-    <div className="top-client">
-        <h3>Clients</h3>
-        <button className="add-client button" onClick = {(e)=>activateAddClient(e)} >Add</button>
-    </div>
+    
     
      <div className="client">
         
@@ -24,7 +21,7 @@ return (
        
      </div>
 
-     <button className="button" onClick={(e)=> invoiceRoute(e)}>Generate New Invoice</button>
+     
     
      </div>
     </div>
@@ -38,17 +35,28 @@ function Clients({activateAddClient, invoiceRoute}) {
     const [client, setClient] = useState([])
 
     useEffect(() => {
-        UserService.getClient().then(response =>
+        
+        UserService.getClients().then(response =>
             setClient(response)
         )
+        // setClient([{client_name: 'John', client_email: "john@gmail.com", client_phone_no:"999999999"}])
     }, [])
 
     return (
-        <div className="client-container">
-        
-            {client.map(item => < Client {...item} activateAddClient={activateAddClient} invoiceRoute={invoiceRoute}/>)}
+        <> 
+            <div className="top-client">
+            <h3>Clients</h3>
+            <button className="add-client button" onClick = {(e)=>activateAddClient(e)} >Add</button>
+            </div>
+            <div className="client-container">
             
-        </div>
+                {client.map(item => < Client {...item} activateAddClient={activateAddClient} invoiceRoute={invoiceRoute}/>)}
+                
+            
+                <button className="button" onClick={(e)=> invoiceRoute(e)}>Generate New Invoice</button>
+            </div>
+        </>
+    
     )
 }
 

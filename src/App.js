@@ -11,6 +11,7 @@ function App() {
       
         
       <Router> 
+        <Route path='/' exact render={()=> <Login/>}  />
         <Route path='/login' exact render={()=> <Login/>} />
         <Switch>
             <Route path='/sign-up' exact render={()=> <Register/>}/>
